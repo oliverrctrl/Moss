@@ -5,6 +5,7 @@
         <Platform>cosmos</Platform>
         <SupportsX86Intrinsics>false</SupportsX86Intrinsics>
         <SelfContained>True</SelfContained>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -20,10 +21,26 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cosmos.Build" Version="0-*" NoWarn="NU1604"/>
-        <PackageReference Include="Cosmos.Debug.Kernel" Version="0-*" NoWarn="NU1604"/>
-        <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604"/>
-        <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604"/>
+        <PackageReference Include="Cosmos.Build" Version="0.1.0-localbuild" NoWarn="NU1604">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Cosmos.Debug.Kernel" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="NLua" Version="1.7.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Drivers\" />
+      <Folder Include="Filesystem\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="user\programs\echo.lua" />
+      <EmbeddedResource Include="User\Programs\echo.lua" />
+      <None Remove="Core\Assets\font.bmp" />
+      <EmbeddedResource Include="Core\Assets\font.bmp" />
     </ItemGroup>
 
 </Project>

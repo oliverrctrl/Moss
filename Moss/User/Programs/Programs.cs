@@ -2,25 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
-using Moss.core.attributes;
-using Moss.core.interfaces;
-using Moss.user.shell;
+using Cosmos.System.Graphics;
+using Moss.Core.Attributes;
+using Moss.Core.Graphics;
+using Moss.Core.Interfaces;
+using Moss.Core.Shell;
 using Sys = Cosmos.System;
 
-namespace Moss.user.programs;
+namespace Moss.User.Programs;
 
 [Program("programs", "Program List", "Displays a list of all known C# class-based and Lua programs")]
 public class Programs : ISharpProgram
 {
+    public Window Window { get; set; }
+    public WindowCanvas Canvas { get; set; }
+
     public void Run(string[] args)
     {
         var programs = ProgramRegistry.GetCommandNames().ToList();
         for (var i = 0; i < programs.Count; i++)
         {
-            ShellManager.Instance.TargetInstanceForegroundColor = ConsoleColor.Gray;
-            ShellManager.Instance.TargetInstance.Write(i);
-            ShellManager.Instance.TargetInstance.ForegroundColor = Kernel.ShellManager.TargetInstance.ForegroundColor;
-            ShellManager.Instance.TargetInstance.WriteLine(" " + programs[i]);
+            Canvas.Write(i.ToString());
+            Canvas.Write(" " + programs[i]);
         }
     }
 

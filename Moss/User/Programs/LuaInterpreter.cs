@@ -1,13 +1,17 @@
 using System;
-using Moss.core.interfaces;
 // using NLua;
-using Moss.core.attributes;
+using Moss.Core.Attributes;
+using Moss.Core.Graphics;
+using Moss.Core.Interfaces;
 
-namespace Moss.user.programs;
+namespace Moss.User.Programs;
 
 [Program("lua", "Lua Interpreter", "Lua to C# interpreter")]
 public class LuaInterpreter : ISharpProgram
 {
+    public Window Window { get; set; }
+    public WindowCanvas Canvas { get; set; }
+
     public void Run(string[] args)
     {
         /* if (args.Length > 1)

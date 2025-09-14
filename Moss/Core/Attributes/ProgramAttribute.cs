@@ -1,6 +1,6 @@
 using System;
 
-namespace Moss.core.attributes;
+namespace Moss.Core.Attributes;
 
 public class ProgramAttribute : Attribute
 {

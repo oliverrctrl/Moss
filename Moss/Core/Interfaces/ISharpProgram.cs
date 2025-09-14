@@ -1,7 +1,12 @@
-namespace Moss.core.interfaces;
+using Moss.Core.Graphics;
+
+namespace Moss.Core.Interfaces;
 
 public interface ISharpProgram
 {
+    public Window Window { get; set; }
+    public WindowCanvas Canvas { get; set; }
+    
     /// <summary>
     /// Called when a program is initiated via the shell
     /// </summary>

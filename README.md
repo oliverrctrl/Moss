@@ -9,6 +9,7 @@ The COSMOS repository used is my own fork that currently only implements multith
 #### Base Goals
 - [ ] Canvas
     - [x] Topbar w/ clock
+    - [x] Bitmap-based font rendering
     - [ ] Tiling windows
     - [ ] Floating windows
     - [ ] Fullscreen
